@@ -1,0 +1,41 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<div>
+    <div>
+        <h2>Manage Your Task</h2>
+    </div>
+    <form action="/markComplet/{{userid}}" method="post" enctype="multipart/form-data">
+        {% for task in tasks %}
+        <div class="row">
+            <div class="form-floating">
+                <label for="title">Name</label>
+                <input class="form-control"type="text" placeholder="Enter Name"
+                    data-sb-validations="required" value="{{task.taskname}}" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">Start Time</label>
+                <input class="form-control" type="tel" placeholder="Enter phone number" value="{{task.starttime}}" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">End Time</label>
+                <input class="form-control" type="tel" placeholder="Enter phone number" value="{{task.endtime}}" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">Task Date</label>
+                <input class="form-control" type="tel" placeholder="Enter phone number" value="{{task.tdate}}"/>
+            </div>
+            <div class="form-floating">
+                <label for="phone">Mark Complete</label>
+                <input class="form-control" name="check" type="checkbox" />
+            </div>
+
+            {% endfor%}
+        </div> 
+        <Button class="btnin" type="submit">Submit</Button>
+
+    </form>
+
+</div>
+{% endblock%}

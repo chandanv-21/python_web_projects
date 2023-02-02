@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block style %}
+<!-- CSS Content-->
+{% endblock %}
+
+{% block content %}
+<!-- Main Content-->
+<div>
+    <div>
+        <h2>Insert New Record</h2>
+    </div>
+    <form action="/addStaff" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="form-floating">
+                <label for="title">Name</label>
+                <input class="form-control" id="name" name="name" type="text" placeholder="Enter Name"
+                    data-sb-validations="required" />
+            </div>
+            
+            <div class="form-floating">
+                <label for="phone">Phone</label>
+                <input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter phone number" />
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="form-floating">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" name="password" type="text" placeholder="Enter Password" />
+            </div>
+            <div class="form-floating">
+                <label for="title">Date of Joining</label>
+                <input class="form-control" id="joindate" name="joindate" type="date" placeholder="Enter Name"
+                    data-sb-validations="required" />
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="form-floating">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address" row="50" placeholder="Enter Address"
+                    data-sb-validations="required"></textarea>
+            </div>
+        </div>
+        <Button class="btnin" type="submit">Submit</Button>
+        <br />
+    </form>
+
+</div>
+{% endblock%}
+<!-- 
+{% block script %}
+
+<script>
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
+{% endblock%} -->

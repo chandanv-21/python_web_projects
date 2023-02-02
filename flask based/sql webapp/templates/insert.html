@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block style %}
+<!-- CSS Content-->
+{% endblock %}
+
+{% block content %}
+<!-- Main Content-->
+<div>
+    <div>
+        <h2>Insert New Record</h2>
+    </div>
+    <form action="/insertdata" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="form-floating">
+                <label for="title">Name</label>
+                <input class="form-control" id="name" name="name" type="text" placeholder="Enter Name"
+                    data-sb-validations="required" />
+            </div>
+            <div class="form-floating">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" name="email" type="email" placeholder="Enter email" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">Phone</label>
+                <input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter phone number" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-floating">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address" row="50" placeholder="Enter Address"
+                    data-sb-validations="required"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-floating">
+                <label for="pickupdate">Pickup Date</label>
+                <input class="form-control" id="pickupdate" name="pickupdate" type="date" placeholder="Enter Date..." />
+            </div>
+            <div class="form-floating">
+                <label for="weight">Weight</label>
+                <input class="form-control" id="weight" name="weight" type="text" placeholder="Enter Weight.." />
+            </div>
+            <div class="form-floating">
+                <label for="destination">Choose Destination</label>
+                <select class="form-control" name="destination" id="destination">
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="banglore">Banglore</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="chennai">Chennai</option>
+                    <option value="pune">Pune</option>
+
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-floating">
+                <label for="image">Select Image</label>
+                <input type="file"
+                    accept="image/apng, image/avif, image/gif, image/jpg, image/jpeg, image/png, image/svg+xml, image/webp"
+                    name="photo" onchange="previewFile()">
+                <img src="" height="100" alt="Image preview...">
+            </div>
+
+        </div>
+        <Button class="btnin" type="submit">Submit</Button>
+        <br />
+    </form>
+
+</div>
+{% endblock%}
+
+{% block script %}
+
+<script>
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
+{% endblock%}

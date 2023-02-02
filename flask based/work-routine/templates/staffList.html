@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table>
+        <thead>
+            <h2>Active Staff list</h2>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Password</th>
+                <th>Date of Joining</th>
+                <th>Address</th>
+                <th>Change Status</th>
+
+            </tr>
+        </thead>
+        {% for user in users %}
+
+        <tbody>
+            <tr>
+                <td>{{user.sl}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.joindate}}</td>
+                <td>{{user.address}}</td>
+                <td><a href="/delete/{{user.sl}}"> <button class="btn2"
+                    name="edit">DELETE</button></a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+        <thead> 
+            <h2>Non-Active Staff list</h2>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Password</th>
+                <th>Date of Joining</th>
+                <th>Address</th>
+                <th>Change Status</th>
+
+            </tr>
+        </thead>
+        {% for user in nusers %}
+
+        <tbody>
+            <tr>
+                <td>{{user.sl}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.joindate}}</td>
+                <td>{{user.address}}</td>
+                <td><a href="/restore/{{user.sl}}"> <button class="btn2"
+                    name="edit">Restore</button></a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock%}

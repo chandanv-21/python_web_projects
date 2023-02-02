@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Services</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        /*body {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }*/
+
+        .form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .inp {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-grp label {
+            align-items: flex-end;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .btn {
+            background-color: rgb(194, 194, 231);
+            border-radius: 3px;
+        }
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+            margin: 20px;
+            padding: 10px;
+
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            /* background-color: #fff; */
+            /* border: 1px solid #ced4da; */
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        textarea.form-control {
+            height: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+.row label{
+    width: 100px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form  class="form-control form-signin" action="/" method="post">
+            <h2>Login to your Account</h2>
+            <div class="row">
+                <label for="email"><span>Email</span></label>
+                <input type="text" id="email" name="email" placeholder="Enter Email">
+            </div>
+            <div class="row">
+                <label for="password"><span>Password</span></label>
+                <input type="password" id="password" name="password" placeholder="Enter Password">
+            </div>
+            <Button class="btn row" type="submit">Login</Button>
+        </form>
+    </div>
+</body>
+
+</html>

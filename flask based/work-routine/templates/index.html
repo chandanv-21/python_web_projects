@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Details</th>
+
+            </tr>
+        </thead>
+        {% for user in users %}
+
+        <tbody>
+            <tr>
+                <td>{{user.sl}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.password}}</td>
+                <td><a href="/details/{{user.sl}}"> <button class="btn2"
+                            name="edit">DETAILS</button></a></td>
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock%}

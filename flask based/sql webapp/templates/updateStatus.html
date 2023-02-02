@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block style %}
+<!-- CSS Content-->
+<style>
+.b{
+      border: 1px solid black;
+      margin: 5px;
+      font-size: large;
+      font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Main Content-->
+<div>
+    <div>
+        <h2>Current Status</h2>
+    </div>
+    <table >
+        <thead  class="b">
+            <tr class="b">
+                <th class="b">Status</th>
+                <th class="b">Time</th>
+    
+            </tr>
+        </thead>
+        {% for update in updates %}
+    
+        <tbody>
+            <tr>
+                <td>{{update.currentstatus}}</td>
+                <td>{{update.date_time}}</td>
+            </tr>
+          
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+        <h2>Update Status</h2>
+    </div>
+
+    <form action="/updateStatus/{{sl}}" method="post" enctype="multipart/form-data" >
+        <div class="row b">
+            <div class="form-floating">
+                <label for="currentstatus">Current Status</label>
+                <input class="form-control" id="currentstatus" name="currentstatus" type="text"  placeholder="New Update.." />
+            </div>
+            <div class="form-floating">
+                <label for="date">Date</label>
+                <input class="form-control" id="date" name="date" type="date"  placeholder="Enter Date..." />
+            </div>
+            <div class="form-floating">
+                <label for="time">Time</label>
+                <input class="form-control" id="time" name="time" type="time"  placeholder="Enter Time..." />
+            </div>
+           
+
+        </div>
+        
+        <Button class="btnin" type="submit">Submit</Button>
+        <br />
+        
+    </form>
+
+</div>
+{% endblock%}
+
+{% block script %}
+
+<script>
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
+{% endblock%}

@@ -1,0 +1,66 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<div>
+    <div>
+        <h2>Insert New Record</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Date of Join</th>
+                <th>Taskname</th>
+                <th>Attendance</th>
+
+            </tr>
+        </thead>
+        {% for employee, tasks in details %}
+
+        <tbody>
+            <tr>
+                <td>{{employee.name}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.joindate}}</td>
+                <td>{{tasks.taskname}}</td>
+                <td>{{tasks.taskstatus}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- <form action="/markAttendance/{{userid}}" method="post" enctype="multipart/form-data">
+        {% for detail in details %}
+        <div class="row">
+            <div class="form-floating">
+                <label for="title">Name</label>
+                <input class="form-control"type="text" placeholder="Enter Name"
+                    data-sb-validations="required" value="{{detail.name}}" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">phone</label>
+                <input class="form-control" type="tel" placeholder="Enter phone number" value="{{detail.phone}}" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">Date f Joining</label>
+                <input class="form-control" type="tel" placeholder="Enter phone number" value="{{detail.joindate}}" />
+            </div>
+            <div class="form-floating">
+                <label for="phone">Address</label>
+                <input class="form-control" type="tel" placeholder="Enter phone number" value="{{detail.address}}"/>
+            </div>
+            <div class="form-floating">
+                <label for="phone">Mark Attendance</label>
+                <input class="form-control" name="check" type="checkbox" />
+            </div>
+
+            {% endfor%}
+        </div> 
+        <Button class="btnin" type="submit">Submit</Button>
+
+    </form> -->
+
+</div>
+{% endblock%}

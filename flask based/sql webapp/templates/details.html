@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Pickup Date</th>
+            <th>Weight</th>
+            <th>Destination</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Curren Status</th>
+
+        </tr>
+    </thead>
+    {% for consumerdetails in datas %}
+
+    <tbody>
+        <tr>
+
+
+            <td>{{consumerdetails.name}}</td>
+            <td>{{consumerdetails.email}}</td>
+            <td>{{consumerdetails.phone}}</td>
+            <td>{{consumerdetails.address}}</td>
+            <td>{{consumerdetails.pickupdate}}</td>
+            <td>{{consumerdetails.weight}}</td>
+            <td>{{consumerdetails.destination}}</td>
+            <td>{{consumerdetails.price}}</td>
+            <td><img src="/static/images/{{consumerdetails.photo}}"> </td>
+            <td>
+                <ol>{% for data2 in datas2 %}
+                    <li>{{data2.currentstatus}} {{data2.date_time}}</li>
+                    {% endfor %}
+                </ol>
+            </td>
+
+
+
+        </tr>
+      
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/updateStatus/{{sl}}"> <button class="btn2"
+    name="edit">Update Status</button></a>
+
+{% endblock%}

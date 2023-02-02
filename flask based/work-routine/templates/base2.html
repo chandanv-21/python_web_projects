@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        .container {
+            text-align: center;
+            border: 2px solid red;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background-color: azure;
+        }
+
+        body {
+            display: contents;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .btn {
+            background-color: rgb(194, 243, 227);
+            /* border-radius: 3px; */
+            border-width: 100%;
+            width: 100%;
+            height: 50px;
+            border: 2px solid aquamarine;
+            font-size: large;
+        }
+
+        .btn2 {
+            background-color: rgb(194, 243, 227);
+            border-radius: 3px;
+            border: 2px solid aquamarine;
+            width: fit-content;
+
+        }
+
+        .site-heading {
+            font-weight: bold;
+            font-size: large;
+            margin-top: -20px;
+            background-color: aqua;
+        }
+
+        .table {
+            width: 800;
+            margin: auto;
+            display: table;
+        }
+
+        tr * {
+            margin: 5px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            margin: 5px;
+            width: -webkit-fill-available
+        }
+
+        img {
+            width: 100px;
+            max-height: 80px;
+        }
+
+        .flex-box {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .flex-1 {
+            display: flex;
+            flex-direction: column;
+            background-color: aquamarine;
+            width: 150px;
+
+        }
+
+        .flex-2 {
+
+            background-color: beige;
+            height: 600px;
+            width: 1200px;
+            text-align: center;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        textarea.form-control {
+            height: auto;
+            width: 500px;
+        }
+
+        .form-floating {
+            margin: 15px;
+            padding: 5px;
+        }
+
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: 0px;
+
+        }
+
+        .btnin {
+            border: 2px solid;
+            border-radius: 3px;
+            background-color: rgb(48, 45, 42);
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 50px;
+            background-color: transparent;
+            border: 1px solid gray;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .btn,
+        .btn2,
+        .btnin :hover {
+            cursor: pointer;
+            ;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Main Content-->
+    <div class="container">
+        <div class="site-heading">
+            <h1>Admin Panel</h1>
+            <span class="subheading">Manage Staff</span>
+        </div>
+        <div class="flex-box">
+            <div class="flex-1">
+                <div>
+                    <a href="/emp"> <button class="btn ">Home</button></a>
+                </div>
+                <div>
+                    <a href="/attendance"> <button class="btn ">Mark Attendance</button></a>
+                </div>
+
+                <div>
+                    <a href="/emplogout"> <button class="btn">Logout</button></a>
+                </div>
+            </div>
+
+            <!-- main Content here -->
+            <div class="table flex-2">
+                {% block content %}
+
+
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+    {% block script %}
+    <!-- Script block -->
+    {% endblock %}
+</body>
+
+</html>

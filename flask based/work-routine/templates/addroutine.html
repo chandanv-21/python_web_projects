@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block style %}
+<!-- CSS Content-->
+{% endblock %}
+
+{% block content %}
+<!-- Main Content-->
+<div>
+    <div class="row">
+        <h2> <span>Emp.Id:- <b> {{data.sl}} </b></span> | <span>Emp. Name:- <b> {{data.name}} </b></span></h2>
+    </div>
+    <div>
+        <h3>Assign New Task </h3>
+    </div>
+
+    <form action="/addroutine/{{data.sl}}" method="post" enctype="multipart/form-data">
+        <div class="row"> Task 1
+            <div class="form-floating">
+                <label for="title">Task Name</label>
+                <input class="form-control" id="taskname1" name="taskname1" type="text" placeholder="Enter  Task Name"
+                    data-sb-validations="required" />
+            </div>
+
+            <div class="form-floating">
+                <label for="starttime">Start Time</label>
+                <input class="form-control" id="starttime1" name="starttime1" type="time"
+                    placeholder="Select Start Time" />
+            </div>
+            <div class="form-floating">
+                <label for="endtime">End Time</label>
+                <input class="form-control" id="endtime1" name="endtime1" type="time" placeholder="Select End Time" />
+            </div>
+
+        </div>
+        <div class="row"> Task 2
+            <div class="form-floating">
+                <label for="title">Task Name</label>
+                <input class="form-control" id="taskname2" name="taskname2" type="text" placeholder="Enter  Task Name"
+                    data-sb-validations="required" />
+            </div>
+
+            <div class="form-floating">
+                <label for="starttime">Start Time</label>
+                <input class="form-control" id="starttime2" name="starttime2" type="time"
+                    placeholder="Select Start Time" />
+            </div>
+            <div class="form-floating">
+                <label for="endtime">End Time</label>
+                <input class="form-control" id="endtime2" name="endtime2" type="time" placeholder="Select End Time" />
+            </div>
+
+        </div>
+
+        <div class="row"> Task 3
+            <div class="form-floating">
+                <label for="title">Task Name</label>
+                <input class="form-control" id="taskname3" name="taskname3" type="text" placeholder="Enter  Task Name"
+                    data-sb-validations="required" />
+            </div>
+
+            <div class="form-floating">
+                <label for="starttime">Start Time</label>
+                <input class="form-control" id="starttime3" name="starttime3" type="time"
+                    placeholder="Select Start Time" />
+            </div>
+            <div class="form-floating">
+                <label for="endtime">End Time</label>
+                <input class="form-control" id="endtime3" name="endtime3" type="time" placeholder="Select End Time" />
+            </div>
+
+        </div>
+        <div>
+            <Button class="btnin" type="submit">Submit</Button>
+        </div>
+    </form>
+
+</div>
+{% endblock%}

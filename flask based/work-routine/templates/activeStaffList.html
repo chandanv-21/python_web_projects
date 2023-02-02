@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Password</th>
+                <th>Date of Joining</th>
+                <th>Address</th>
+                <th>Edit User</th>
+                <th>Delete User</th>
+                <th>Add Task</th>
+
+            </tr>
+        </thead>
+        {% for user in users %}
+
+        <tbody>
+            <tr>
+                <td>{{user.sl}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.joindate}}</td>
+                <td>{{user.address}}</td>
+                <td><a href="/editStaff/{{user.sl}}"> <button class="btn2"
+                            name="edit">EDIT</button></a></td>
+                <td><a href="/delete/{{user.sl}}"> <button class="btn2"
+                            name="edit">DELETE</button></a></td>
+                <td><a href="/addroutine/{{user.sl}}"> <button class="btn2"
+                            name="edit">Add Task</button></a></td>
+            
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock%}

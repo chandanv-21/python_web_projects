@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Task Date</th>
+                <th>Task Time</th>
+                <th>Task Status</th>
+                <th>Task Completion Date</th>
+                <th>Task Completion Time</th>
+
+            </tr>
+        </thead>
+        {% for employee, task in datas %}
+
+        <tbody>
+            <tr>
+                <td>{{employee.sl}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{task.tdate}}</td>
+                <td>{{task.starttime}} - {{task.endtime}}</td>
+                <td>{{task.taskstatus}}</td>
+                <td>{{task.competiondate}}</td>
+                <td>{{task.completiontime}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock%}
