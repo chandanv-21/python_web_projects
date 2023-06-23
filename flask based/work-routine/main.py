@@ -65,27 +65,26 @@ def index():
 def add():
     if 'user' in session and session['user'] == params["admin_email"]:
         return render_template("addStaff.html")
-    redirect("/")
+    return redirect("/")
 
 
 
 @app.route("/addStaff",methods=["GET","POST"])
 def addStaff():
-    if 'user' in session and session['user'] == params["admin_email"]:
-        
+    if request.method=="POST":
         name=request.form.get("name")
         phone=request.form.get("phone")
         password=request.form.get("password")
         joindate=request.form.get("joindate")
         address=request.form.get("address")
         status='active'
-        
-        if request.method=="POST":
+        if 'user' in session and session['user'] == params["admin_email"]:         
             entry=Employee(name=name, phone=phone, password =password, joindate=joindate, address=address, status=status)
             db.session.add(entry)
             db.session.commit()
             return redirect("/add")
     return redirect("/")     
+
 @app.route("/staffList",methods=["GET","POST"])
 def staffList():
     if 'user' in session and session['user'] == params["admin_email"]:
@@ -103,14 +102,15 @@ def activeStaffList():
 @app.route("/editStaff/<int:sl>",methods=["GET","POST"])
 def editStaff(sl):
     if 'user' in session and session['user'] == params["admin_email"]:
-        name=request.form.get("name")
-        phone=request.form.get("phone")
-        password=request.form.get("password")
-        joindate=request.form.get("joindate")
-        address=request.form.get("address")
-        status='active'
-        
         if request.method=="POST":
+            name=request.form.get("name")
+            phone=request.form.get("phone")
+            password=request.form.get("password")
+            joindate=request.form.get("joindate")
+            address=request.form.get("address")
+            status='active'
+        
+        
             data=Employee.query.filter_by(sl=sl).first()
             data.name=name
             data.phone=phone
